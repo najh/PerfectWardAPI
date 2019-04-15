@@ -25,4 +25,3 @@
 - [ ] Requirements (Windows/.NET, Perfect Ward Account, API key, Firewall access, DB access, ...)
 - [ ] Activity logging
 - [ ] DB backends
-- [ ] Activity logging
