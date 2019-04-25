@@ -15,12 +15,14 @@
 - [x] Deserialise Role
 - [x] Deserialise Survey
 - [x] Hit detailed report endpoint - /api/report/:id
-- [ ] Deserialise FinalReflections
-- [ ] Deserialise Answers
-- [ ] Activity logging
+- [x] Deserialise FinalReflections
+- [x] Deserialise Answers
+- [x] Activity logging
 
 ### Other TODO
 - [ ] Setup tool
-- [ ] Documentation
+- [x] Documentation
+  - [ ] Finish docs
 - [ ] Requirements (Windows/.NET, Perfect Ward Account, API key, Firewall access, DB access, ...)
-- [ ] DB backends
+- [x] DB backends
+ - [ ] Separate MSSQL into its own module.
