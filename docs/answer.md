@@ -9,7 +9,7 @@
 |---|---|---|
 | Id | int | ID of the answer |
 | Score | float | The score given to the answer |
-| ItScores | bool | ??? |
+| ItScores | bool | Whether this answer contributes towards the average score |
 | IsMultiple | bool | Whether there are multiple answers provided |
 | AnswerText | string | The contents of the answer |
 | AnswerChoiceId | int? | The chosen answer, or `null` |
