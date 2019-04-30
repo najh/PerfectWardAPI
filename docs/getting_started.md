@@ -55,11 +55,13 @@ var pwc = new PerfectWardClient(creds);
 
 Task.Factory.StartNew(async () =>
 {
-    var details = new List<Report>();
-    var reportsResponse = (await pwc.ListReports()).Reports;
-    var details = reportsResponse.Select(async x => await pwc.ReportDetails(x.Id)).Select(x => x.Result);
-
-    //Operate on details enumerable here.
+    if(await pwc.TestApi()) //Test for successful authentication.
+    {
+        var details = new List<Report>();
+        var reportsResponse = (await pwc.ListReports()).Reports;
+        var details = reportsResponse.Select(async x => await pwc.ReportDetails(x.Id)).Select(x => x.Result);
+        //Operate on details enumerable here.
+    }
 });
 ```
 
