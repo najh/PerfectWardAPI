@@ -27,8 +27,8 @@
   - [ ] Automate scheduled task creation
   - [x] Save down last ID to skip already queried reports.
 - [x] Documentation
-  - [ ] Update docs for changes
-  - [ ] Finish docs for DB storage
+  - [x] Update docs for changes
+  - [x] Finish docs for DB storage
 - [ ] Client requirements
   - [x] Windows
   - [x] .NET 4.6
