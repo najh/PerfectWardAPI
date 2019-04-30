@@ -8,7 +8,60 @@
   <meta name="description" content="Description">
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css">
+  <link rel="stylesheet" href="https://unpkg.com/docsify/themes/vue.css">
+
+  <style>
+    .sidebar
+    {
+      background-color: #44484b;
+    }
+    .content
+    {
+      background-color: #efefef;
+    }
+
+    p > img
+    {
+      max-width: 100%;
+      margin: auto;
+      left: 50%;
+      position: relative;
+      transition: 50% 0%;
+      transform: translateX(-50%);
+    }
+
+    .sidebar-nav * p
+    {
+        color: black !important;
+    }
+
+    .sidebar-nav * a
+    {
+        color: #fff !important;
+        text-shadow: black 0 1px 0;
+    }
+    .sidebar-nav * a:hover, .active > a
+    {
+        background: #7b8389;
+        width: min-content;
+        border-radius: 10px;
+        margin: 0px -10px;
+        padding: 0px 10px;
+    }
+    
+    .active > a {
+        border-right: 2px solid #00af50 !important;
+    }
+    .app-sub-sidebar li::before
+    {
+      content: unset !important;
+    }
+
+    .sidebar-toggle
+    {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -23,9 +76,9 @@
       subMaxLevel: 2
     }
   </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-ini.min.js"></script>
+  <script src="https://unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="https://unpkg.com/prismjs/components/prism-csharp.min.js"></script>
+  <script src="https://unpkg.com/prismjs/components/prism-ini.min.js"></script>
 </body>
 
 </html>

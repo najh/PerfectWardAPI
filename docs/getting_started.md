@@ -57,13 +57,9 @@ Task.Factory.StartNew(async () =>
 {
     var details = new List<Report>();
     var reportsResponse = (await pwc.ListReports()).Reports;
-    foreach (var report in reportsResponse)
-    {
-        var detailedReportResponse = await pwc.ReportDetails(report.Id);
-        details.Add(detailedReportResponse.Report);
-    }
+    var details = reportsResponse.Select(async x => await pwc.ReportDetails(x.Id)).Select(x => x.Result);
 
-    //Operate on details list here.
+    //Operate on details enumerable here.
 });
 ```
 
@@ -85,6 +81,54 @@ var reportsResponse = (await pwc.ListReportsSince(maxTimestamp)).Reports;
 
 ## Store
 
-TODO:
-* Describe how a developer might store report data locally, or in a database.
-* Document both the generation of JSON files and the SQL Server helper class.
+* The wrapper supports storing reports in a database through the `IDbDriver` interface.
+
+```csharp
+var connStr = @"Data Source=...;Initial Catalog=...;etc";
+var driver = DbDriver.Create(connStr);
+```
+
+* Storing the connection string in source code is not advised. The use of a file or environment variable is preferred.
+* DbDriver will locate the first DLL in the current directory that matches the file wildcard `*Driver.dll`
+* Upon finding such a file, the assembly is loaded and queried for the first class that implements `IDbDriver`
+* This class is instantiated and returned, ready to query and store data:
+
+```csharp
+var driver = DbDriver.Create(connStr);
+
+if(driver == null)
+{
+    //No DB driver found
+    return;
+}
+
+if (driver.TestConnection())
+{
+    var creds = new IniCredentials("credentials.ini");
+    var pwc = new PerfectWardClient(creds);
+
+    Task.Factory.StartNew(async () =>
+    {
+        if(await pwc.TestApi())
+        {
+            var maxTimestamp = driver.GetLatestEndDate().ToTimeStamp();
+            var reportsResponse = (await pwc.ListReportsSince(maxTimestamp)).Reports;
+            var details = reportsResponse.Select(async x => await pwc.ReportDetails(x.Id)).Select(x => x.Result);
+            driver.UploadReports(ref details);
+        }
+        Environment.Exit(0);
+    });
+
+    Console.ReadLine();
+}
+```
+
+## Summary
+
+* The ideal workflow for accessing and storing report data can be described as follows:
+  * Create an instance of a database driver.
+  * If the database reports as accessible, create an API client and authenticate.
+  * If the API reports as accessible, determine the latest report date.
+  * Use the report date to perform a filtered query for report summaries.
+  * For each report summary, fetch a detailed report.
+  * Pass these detailed reports to the database for storage.

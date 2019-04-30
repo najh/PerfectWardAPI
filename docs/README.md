@@ -1,4 +1,4 @@
-![Perfect Ward Logo](https://www.perfectward.com/wp-content/uploads/2019/02/Perfect-Ward-one-line-white-with-rtm.png)
+![Perfect Ward Logo](https://ward-inspector-images.s3.amazonaws.com/images/pw_logo_1line_transparent_210x35.png)
 
 ### Perfect Ward
 An [app](https://www.perfectward.com/) designed to facilitate health inspections in all areas including wards, theatres, care homes and community and social care.
