@@ -22,7 +22,7 @@
 ### Other TODO
 - [ ] Setup tool
   - [x] Abstracted DB driver to test connection
-  - [ ] Abstracted PW wrapper to test connection
+  - [x] Abstracted PW wrapper to test connection
   - [ ] Bundle UI + connection tests to provide "easy setup"
   - [ ] Automate scheduled task creation
   - [x] Save down last ID to skip already queried reports.
