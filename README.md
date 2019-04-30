@@ -21,8 +21,19 @@
 
 ### Other TODO
 - [ ] Setup tool
+  - [x] Abstracted DB driver to test connection
+  - [ ] Abstracted PW wrapper to test connection
+  - [ ] Bundle UI + connection tests to provide "easy setup"
+  - [ ] Automate scheduled task creation
+  - [ ] Save down last ID to skip already queried reports.
 - [x] Documentation
-  - [ ] Finish docs
-- [ ] Requirements (Windows/.NET, Perfect Ward Account, API key, Firewall access, DB access, ...)
+  - [ ] Finish docs for DB storage
+- [ ] Client requirements
+  - [x] Windows
+  - [x] .NET 4.6
+  - [ ] Perfect Ward Account
+  - [ ] API key
+  - [ ] Firewall access
+  - [ ] DB access
 - [x] DB backends
   - [x] Separate MSSQL into its own module.
