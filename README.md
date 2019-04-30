@@ -23,9 +23,10 @@
 - [ ] Setup tool
   - [x] Abstracted DB driver to test connection
   - [x] Abstracted PW wrapper to test connection
-  - [ ] Bundle UI + connection tests to provide "easy setup"
-  - [ ] Automate scheduled task creation
+  - [x] Bundle UI + connection tests to provide "easy setup"
+  - [x] Automate scheduled task creation
   - [x] Save down last ID to skip already queried reports.
+  - [ ] Single EXE for ease of distribution
 - [x] Documentation
   - [x] Update docs for changes
   - [x] Finish docs for DB storage
