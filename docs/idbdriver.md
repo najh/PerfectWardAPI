@@ -1,9 +1,9 @@
 # IDbDriver
 
-## Summary
+## Summary {docsify-ignore}
 A simple interface to abstract report storage and querying for the latest `Ended At` date.
 
-## Methods
+## Methods {docsify-ignore}
 
 ### TestConnection
 * Returns `true` when a successful connection can be made to the database, else `false`.
