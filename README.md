@@ -25,4 +25,4 @@
   - [ ] Finish docs
 - [ ] Requirements (Windows/.NET, Perfect Ward Account, API key, Firewall access, DB access, ...)
 - [x] DB backends
-  - [ ] Separate MSSQL into its own module.
+  - [x] Separate MSSQL into its own module.
