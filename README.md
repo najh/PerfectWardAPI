@@ -30,6 +30,8 @@
 - [x] Documentation
   - [x] Update docs for changes
   - [x] Finish docs for DB storage
+  - [ ] Document SQL storage details (table/columns/permissions/connection string)
+  - [ ] Document .NET/Windows file security, failing to load assemblies, error messages.
 - [ ] Client requirements
   - [x] Windows
   - [x] .NET 4.6
