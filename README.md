@@ -19,10 +19,13 @@
 - [x] Deserialise Answers
 - [x] Activity logging
 - [x] Rename installer to connector
-- [ ] Separate out answers into a new table
-- [ ] Sub answers point at parent ID
+- [x] Separate out answers into a new table
+- [x] Sub answers point at parent ID
 - [x] Remove API responses from logs
+- [x] Mutex for single instance
 - [ ] Pagination (pending live implementation)
+- [ ] Debug task scheduler error code
+  - [ ] Determine cause of Debug class Type Initializer error.
 
 ### Other TODO
 - [ ] Setup tool
