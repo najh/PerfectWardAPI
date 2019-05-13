@@ -18,6 +18,11 @@
 - [x] Deserialise FinalReflections
 - [x] Deserialise Answers
 - [x] Activity logging
+- [x] Rename installer to connector
+- [ ] Separate out answers into a new table
+- [ ] Sub answers point at parent ID
+- [ ] Remove API responses from logs
+- [ ] Pagination (pending live implementation)
 
 ### Other TODO
 - [ ] Setup tool
@@ -31,6 +36,10 @@
 - [x] Documentation
   - [x] Update docs for changes
   - [x] Finish docs for DB storage
+  - [ ] Document running as admin
+  - [ ] State what will be removed or will remain after an uninstallation
+  - [ ] State what uninstalling will remove
+  - [ ] Document connector setup as an alternative to the API itself
   - [ ] Document SQL storage details (table/columns/permissions/connection string)
   - [ ] Document .NET/Windows file security, failing to load assemblies, error messages.
 - [ ] Client requirements
