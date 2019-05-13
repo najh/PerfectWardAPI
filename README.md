@@ -22,7 +22,6 @@
 - [ ] Separate out answers into a new table
 - [ ] Sub answers point at parent ID
 - [x] Remove API responses from logs
-- [x] Add current directory to log
 - [ ] Pagination (pending live implementation)
 
 ### Other TODO
