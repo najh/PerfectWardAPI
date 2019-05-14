@@ -5,4 +5,7 @@ An [app](https://www.perfectward.com/) designed to facilitate health inspections
 
 ### Wrapper Summary
 A .NET API wrapper for the Perfect Ward API, designed to consume report data and optionally store it in a database.
-To begin using the wrapper, visit [Getting started](getting_started.md).
+
+To get started without code, visit [API Connector](connector.md)
+
+To get started as a developer, visit [Developer Quickstart](developer_quickstart.md).

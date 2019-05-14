@@ -2,7 +2,9 @@
 
 - [Index](/)
 
-- [Getting started](getting_started.md)
+- [API Connector](connector.md)
+  - [Database Details](db_details.md)
+- [Developer Quickstart](developer_quickstart.md)
 
 - Code
   - [Report](report.md)
