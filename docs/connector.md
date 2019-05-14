@@ -1,6 +1,6 @@
 # Connector
 
-## Summary {docsify-ignore}
+## Description {docsify-ignore}
 
 * For a simplified approach to getting data stored, the API Connector is provided to streamline the process of fetching and storing reports in a database.
 
@@ -12,7 +12,9 @@
 
 ## Installation {docsify-ignore}
 
+* When upgrading or reinstalling the connector, it is required to first uninstall the existing version.
 * After downloading the latest Connector release, run the file and proceed through the installation process.
+  * It is recommended to run the installer with admin privileges.
 
 ![](connector/install.png "Connector Installer")
 
@@ -25,7 +27,7 @@
 * If either test returns a red error message, please confirm the validity of your credentials and connection string. Ensuring that the API token is up to date and that the MSSQL server is reachable.
 * After clicking connect, the settings are saved to the current user account, and the connector is scheduled to run every 24 hours. The connector is then run in the background to begin pulling in details.
 
-## Connector {docsify-ignore}
+## Summary {docsify-ignore}
 
 * The connector works as follows:
   * Query the database for the latest report, if any.
@@ -34,3 +36,8 @@
   * Store the report information into the `reports` table.
   * For each Answer in the report, save into the `answers` table.
   * Details on how the data is stored is available [here](db_details.md?id=database-details).
+* Uninstalling the connector will attempt to remove:
+  * The connector application files and logs.
+  * Credentials stored within user environment variables.
+  * The daily scheduled task to fetch and upload reports.
+* Uninstalling does not remove data stored within the database.
