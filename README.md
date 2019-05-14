@@ -41,8 +41,8 @@
   - [x] Finish docs for DB storage
   - [ ] Document running as admin
   - [ ] State what will be removed or will remain after an uninstallation
-  - [ ] Document connector setup as an alternative to the API itself
-  - [ ] Document SQL storage details (table/columns/permissions/connection string)
+  - [x] Document connector setup as an alternative to the API itself
+  - [x] Document SQL storage details (table/columns/permissions/connection string)
   - [ ] Document .NET/Windows file security, failing to load assemblies, error messages.
 - [ ] Client requirements
   - [x] Windows
