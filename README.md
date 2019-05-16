@@ -23,11 +23,10 @@
 - [x] Sub answers point at parent ID
 - [x] Remove API responses from logs
 - [x] Mutex for single instance
-- [ ] Pagination
+- [x] Pagination
     - [ ] Pending live implementation
-- [ ] Debug task scheduler error code
-  - [ ] Determine cause of Debug class Type Initializer error.
-    - [ ] In testing
+- [x] Debug task scheduler error code
+  - [x] Determine cause of Debug class Type Initializer error.
 
 ### Other TODO
 - [ ] Setup tool
