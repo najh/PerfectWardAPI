@@ -24,7 +24,8 @@
 - [x] Remove API responses from logs
 - [x] Mutex for single instance
 - [x] Pagination
-    - [ ] Pending live implementation
+    - [x] Pending live implementation
+    - [ ] Testing
 - [x] Debug task scheduler error code
   - [x] Determine cause of Debug class Type Initializer error.
 
@@ -45,6 +46,7 @@
   - [x] State what will be removed or will remain after an uninstallation
   - [x] Document connector setup as an alternative to the API itself
   - [x] Document SQL storage details (table/columns/permissions/connection string)
+  - [x] Document pagination
   - [ ] Document .NET/Windows file security, failing to load assemblies, error messages.
     - [ ] Pending testing on client machine
 - [x] DB backends
