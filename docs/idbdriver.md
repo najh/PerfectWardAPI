@@ -13,5 +13,5 @@ A simple interface to abstract report storage and querying for the latest `Ended
 * Returns the `DateTime` associated with the most recently stored `Report`, else `DateTime.MinValue`
 
 ### UploadReports
-* Accepts a reference to a collection of `DetailedReportResponse`
+* Accepts a reference to an array of `DetailedReportResponse`
 * Returns nothing, uploads reports from the collection to the database.

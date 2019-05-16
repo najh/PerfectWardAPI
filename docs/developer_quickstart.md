@@ -57,10 +57,9 @@ Task.Factory.StartNew(async () =>
 {
     if(await pwc.TestApi()) //Test for successful authentication.
     {
-        var details = new List<Report>();
         var reportsResponse = (await pwc.ListReports()).Reports;
-        var details = reportsResponse.Select(async x => await pwc.ReportDetails(x.Id)).Select(x => x.Result);
-        //Operate on details enumerable here.
+        var details = await Task.WhenAll(reports.Select(async x => await pwc.ReportDetails(x.Id)));
+        //Operate on details array here.
     }
 });
 ```
@@ -79,6 +78,33 @@ var maxTimestamp = details.Max(x => x.EndedAtDate).ToTimeStamp();
 
 ```csharp
 var reportsResponse = (await pwc.ListReportsSince(maxTimestamp)).Reports;
+```
+
+### Pagination
+
+* Results are served in pages, where the page size can be specified. By default, queries will provide a page number of `1`, which can be incremented to access subsequent pages.
+* The pagination information is returned in the [Meta](meta.md) part of a response:
+
+```csharp
+var maxTimestamp = driver.GetLatestEndDate().ToTimeStamp();
+var reportsResponse = await pwc.ListReportsSince(maxTimestamp);
+var reports = reportsResponse.Reports;
+if(reportsResponse.Meta != null)
+{
+    int currentPage = reportsResponse.Meta.CurrentPage;
+    int totalPages = reportsResponse.Meta.TotalPages;
+    while (currentPage < totalPages)
+    {
+        reportsResponse = await pwc.ListReportsSince(maxTimestamp, ++currentPage);
+        reports.AddRange(reportsResponse.Reports);
+    }
+}
+```
+
+* Duplicates may be found if live data changes occur when iterating pages and should be filtered out:
+
+```csharp
+reports = reports.Distinct().ToList();
 ```
 
 ## Store
@@ -109,19 +135,28 @@ if (driver.TestConnection())
     var creds = new IniCredentials("credentials.ini");
     var pwc = new PerfectWardClient(creds);
 
-    Task.Factory.StartNew(async () =>
+    Task.Run(async () =>
     {
-        if(await pwc.TestApi())
+        if (await pwc.TestApi())
         {
             var maxTimestamp = driver.GetLatestEndDate().ToTimeStamp();
-            var reportsResponse = (await pwc.ListReportsSince(maxTimestamp)).Reports;
-            var details = reportsResponse.Select(async x => await pwc.ReportDetails(x.Id)).Select(x => x.Result);
+            var reportsResponse = await pwc.ListReportsSince(maxTimestamp);
+            var reports = reportsResponse.Reports;
+            if(reportsResponse.Meta != null)    //Pagination
+            {
+                int currentPage = reportsResponse.Meta.CurrentPage;
+                int totalPages = reportsResponse.Meta.TotalPages;
+                while (currentPage < totalPages)
+                {
+                    reportsResponse = await pwc.ListReportsSince(maxTimestamp, ++currentPage);
+                    reports.AddRange(reportsResponse.Reports);
+                }
+            }
+            reports = reports.Distinct().ToList();
+            var details = await Task.WhenAll(reports.Select(async x => await pwc.ReportDetails(x.Id)));
             driver.UploadReports(ref details);
         }
-        Environment.Exit(0);
-    });
-
-    Console.ReadLine();
+    }).Wait();
 }
 ```
 
@@ -132,5 +167,6 @@ if (driver.TestConnection())
   * If the database reports as accessible, create an API client and authenticate.
   * If the API reports as accessible, determine the latest report date.
   * Use the report date to perform a filtered query for report summaries.
+  * For each page of responses, fetch all report summaries.
   * For each report summary, fetch a detailed report.
   * Pass these detailed reports to the database for storage.
