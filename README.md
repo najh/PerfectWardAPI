@@ -23,9 +23,11 @@
 - [x] Sub answers point at parent ID
 - [x] Remove API responses from logs
 - [x] Mutex for single instance
-- [ ] Pagination (pending live implementation)
+- [ ] Pagination
+    - [ ] Pending live implementation
 - [ ] Debug task scheduler error code
   - [ ] Determine cause of Debug class Type Initializer error.
+    - [ ] In testing
 
 ### Other TODO
 - [ ] Setup tool
@@ -36,6 +38,7 @@
   - [x] Save down last ID to skip already queried reports.
   - [x] Single EXE for ease of distribution
   - [ ] Code signing
+    - [ ] Pending finalisation of code
 - [x] Documentation
   - [x] Update docs for changes
   - [x] Finish docs for DB storage
@@ -44,12 +47,6 @@
   - [x] Document connector setup as an alternative to the API itself
   - [x] Document SQL storage details (table/columns/permissions/connection string)
   - [ ] Document .NET/Windows file security, failing to load assemblies, error messages.
-- [ ] Client requirements
-  - [x] Windows
-  - [x] .NET 4.6
-  - [ ] Perfect Ward Account
-  - [ ] API key
-  - [ ] Firewall access
-  - [ ] DB access
+    - [ ] Pending testing on client machine
 - [x] DB backends
   - [x] Separate MSSQL into its own module.
