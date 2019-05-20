@@ -23,9 +23,9 @@
 - ✅ Sub answers point at parent ID
 - ✅ Remove API responses from logs
 - ✅ Mutex for single instance
-- 🔳 Pagination
+- ✅ Pagination
     - ✅ Pending live implementation
-    - 🔲 Testing
+    - ✅ Testing
 - ✅ Debug task scheduler error code
   - ✅ Determine cause of Debug class Type Initializer error.
 
